@@ -6,21 +6,28 @@ Record your responses inside the fenced code blocks below each question.
     and what are the main task(s) you perform inside an Ember Route?
 
     ```md
-    <!-- your response here -->
+    • The Ember Application Router assigns route template names, and optional route path names
+    that can differ from the template name. It then dispatches to a route when a
+    given url is entered into the browser.
+
+    • An Ember route can describe the model, through route.js, that is used to
+    perform data actions, such as calls to a back-end server, and then render the
+    data through template.js. It is responsible for delegating data binding, and
+    can also describe components.
     ```
 
 1.  What is the command to generate a route named `boston` nested under
     `campus`?
 
     ```md
-    <!-- your response here -->
+    ember g route campus/boston
     ```
 
 1.  Suppose you have a nested route at the URL `/campus/boston`. How would you
     use the `link-to` helper to generate an appropriate link?
 
     ```md
-    <!-- your response here -->
+    {{#link-to 'campus.boston' }}Boston{{/link-to}}
     ```
 
 1.  Explain **at least** two differences between the following two route
@@ -35,7 +42,9 @@ Record your responses inside the fenced code blocks below each question.
     ```
 
     ```md
-    <!-- your response here -->
+    • The first route definition describes a nested route that would allow access to data from the products route. This is not possible in the second definition.
+
+    • The second route's path description references another route outside of itself. In the first, the nested route's path is just appended to the enclosing route's path.
     ```
 
 1.  Suppose we have the following route definition:
@@ -48,11 +57,13 @@ Record your responses inside the fenced code blocks below each question.
     value `'123'` inside a Route?
 
     ```md
-    <!-- your response here -->
+    export default Ember.Route.extend({
+      model: function(params) { return params.movie_id; }
+    });
     ```
 
 1.  Inside a template, how do we reference data provided by a Route?
 
     ```md
-    <!-- your response here -->
-    ```
+    By describing model as |<item>|, and then assigning <item>=<item> with the route name preceding the assignment, all in HTMLBars.
+     ```
